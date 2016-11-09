@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+    <meta charset = "utf-8">
+    <title> recipe box</title>
+    <script type ="text/javascript" src = "https://code.angularjs.org/1.5.8/angular.js"></script>
+
+</head>
+<body ng-controller="productController">
+<table>
+    <tr>
+        <th>Recipe</th>
+        <th>Ingredients</th>
+        <th>Options</th>
+    </tr>
+    <tr ng-repeat= "product in listProducts">
+        <td>{{product.recipe}}</td>
+        <td>{{product.ig}}</td>
+        <td>
+            <button ng-click="del(product.recipe)">Delete</button> |
+            <button ng-click="selectEdit(product.recipe)">Edit</button>
+        </td>
+    </tr>
+</table>
+
+<h3> Add recipe </h3>
+<table>
+    <tr>
+        <td>Recipe</td>
+        <td><input type="text" ng-model="recipe"></td>
+    </tr>
+    <tr>
+        <td>Ingredients</td>
+        <td><input type="text" ng-model="ig"></td>
+    </tr>
+    <tr>
+        <td><button type="button" class="btn btn-secondary" ng-click="add()">Add</button></td>
+        <td><button type="button" class="btn btn-secondary" ng-click="edit()">save</button></td>
+    </tr>
+</table>
+<script src = "controller.js"></script>
+</body>
+</html>
